@@ -21,6 +21,9 @@ public class PcBangApplication {
 
     public static void main(String[] args) throws Exception {
         List<PcBang> pcBangs = readPcBangsFromResourceFile();
+        for (PcBang pcBang : pcBangs) {
+            pcBang.setName(pcBang.getName().replaceAll("é", "e"));
+        }
         PcBangService pcBangService = new PcBangService(pcBangs);
 
         System.out.println("--- PC방 혜택 판별기 ---");
